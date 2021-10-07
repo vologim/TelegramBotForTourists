@@ -6,17 +6,16 @@ import java.util.List;
 
 public interface CityService {
     
+    List<City> getAllCity();
+    
     City getById(Integer id);
     
-    List<City> getByNameRus(String name);
-    
-    List<City> getByNameEng(String name);
+    City getByCityName(String name);
     
     void save(City city);
     
     void delete(Integer id);
     
-    List<City> deleteAllNameRus(String name);
-    
-    List<City> deleteAllNameEng(String name);
+    List<City> deleteAllCityName(String name);
+
 }

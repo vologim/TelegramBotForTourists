@@ -21,18 +21,18 @@ public class CityServiceImpl implements CityService{
     }
 
     @Override
+    public List<City> getAllCity() {
+        return repository.findAll();
+    }
+    
+    @Override
+    public City getByCityName(String name) {
+        return repository.findFirstByCityName(name);
+    }
+    
+    @Override
     public City getById(Integer id) {
         return repository.findById(id).get();
-    }
-    
-    @Override
-    public List<City> getByNameRus(String name) {
-        return repository.findByNameRus(name);
-    }
-    
-    @Override
-    public List<City> getByNameEng(String name) {
-        return repository.findByNameEng(name);
     }
 
     @Override
@@ -46,13 +46,8 @@ public class CityServiceImpl implements CityService{
     }
 
     @Override
-    public List<City> deleteAllNameRus(String name) {
-        return repository.deleteByNameRus(name);
-    }
-
-    @Override
-    public List<City> deleteAllNameEng(String name) {
-        return repository.deleteByNameEng(name);
+    public List<City> deleteAllCityName(String name) {
+        return repository.deleteByCityName(name);
     }
     
 }

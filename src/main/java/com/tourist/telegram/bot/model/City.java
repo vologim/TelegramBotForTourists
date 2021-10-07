@@ -19,15 +19,10 @@ public class City {
     @Column(name = "id")
     private int id;
     
-    @Column(name = "city_name_RUS")
-    private String nameRus;
+    @Column(name = "city_name")
+    private String cityName;
     
-    @Column(name = "city_name_ENG")
-    private String nameEng;
+    @Column(name = "information")
+    private String information;
     
-    @Column(name = "information_RUS")
-    private String informationRus;
-    
-    @Column(name = "information_ENG")
-    private String informationEng;
 }

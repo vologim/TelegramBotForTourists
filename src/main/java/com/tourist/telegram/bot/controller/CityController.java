@@ -4,8 +4,6 @@ package com.tourist.telegram.bot.controller;
 import com.tourist.telegram.bot.model.City;
 import com.tourist.telegram.bot.service.impl.CityServiceImpl;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,51 +25,42 @@ public class CityController {
         this.cityService = cityService;
     }
     
-    @GetMapping("/city/{id}")
+    @GetMapping("/cities")
+    public List<City> getAllCities(){
+        return cityService.getAllCity();
+    }
+    
+    @GetMapping("/cities/{id}")
     public City getCityById(@PathVariable Integer id){
         return cityService.getById(id);
     }
     
-    @GetMapping("/city/name/{name}")
-    public List<City> getCityByNameRus(@PathVariable String name){
-        String regexEng = "[a-zA-Z]+";
-        Pattern pattern = Pattern.compile(regexEng);
-        Matcher matcher = pattern.matcher(name);
-        
-        if(matcher.find()){
-            return cityService.getByNameEng(name);
-        }
-        return cityService.getByNameRus(name);
+    @GetMapping("/cities/name/{name}")
+    public City getCityByName(@PathVariable String name){
+        return cityService.getByCityName(name);
     }
     
-    @PostMapping("/city")
+    @PostMapping("/cities")
     public City saveSity(@RequestBody City city){
         cityService.save(city);
         return city;
     }
     
-    @PutMapping("/city")
+    @PutMapping("/cities")
     public City updateCity(@RequestBody City city){
         cityService.save(city);
         return city;
     }
     
-    @DeleteMapping("/city/{id}")
+    @DeleteMapping("/cities/{id}")
     public City deleteCityById(@PathVariable Integer id){
         City city = cityService.getById(id);
         cityService.delete(id);
         return city;
     }
     
-    @DeleteMapping("/city/name/{name}")
+    @DeleteMapping("/cities/name/{name}")
     public List<City> deleteCityByName(@PathVariable String name){
-        String regexEng = "[a-zA-Z]+";
-        Pattern pattern = Pattern.compile(regexEng);
-        Matcher matcher = pattern.matcher(name);
-        
-        if(matcher.find()){
-            return cityService.deleteAllNameEng(name);
-        }
-        return cityService.deleteAllNameRus(name);
+        return cityService.deleteAllCityName(name);
     }
 }
