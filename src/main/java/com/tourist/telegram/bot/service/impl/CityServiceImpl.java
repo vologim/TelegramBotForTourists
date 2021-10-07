@@ -7,8 +7,10 @@ import com.tourist.telegram.bot.service.CityService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class CityServiceImpl implements CityService{
     
     private final CityRepository repository;
@@ -18,7 +20,6 @@ public class CityServiceImpl implements CityService{
         this.repository = repository;
     }
 
-    
     @Override
     public City getById(Integer id) {
         return repository.findById(id).get();
@@ -45,12 +46,12 @@ public class CityServiceImpl implements CityService{
     }
 
     @Override
-    public City deleteByNameRus(String name) {
+    public List<City> deleteAllNameRus(String name) {
         return repository.deleteByNameRus(name);
     }
 
     @Override
-    public City deleteByNameEng(String name) {
+    public List<City> deleteAllNameEng(String name) {
         return repository.deleteByNameEng(name);
     }
     

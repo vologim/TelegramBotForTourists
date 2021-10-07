@@ -63,15 +63,15 @@ public class CityController {
         return city;
     }
     
-    @DeleteMapping("/city/{name}")
-    public City deleteCityByName(@PathVariable String name){
+    @DeleteMapping("/city/name/{name}")
+    public List<City> deleteCityByName(@PathVariable String name){
         String regexEng = "[a-zA-Z]+";
         Pattern pattern = Pattern.compile(regexEng);
         Matcher matcher = pattern.matcher(name);
         
         if(matcher.find()){
-            return cityService.deleteByNameEng(name);
+            return cityService.deleteAllNameEng(name);
         }
-        return cityService.deleteByNameRus(name);
+        return cityService.deleteAllNameRus(name);
     }
 }

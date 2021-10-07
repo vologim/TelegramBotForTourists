@@ -16,7 +16,7 @@ public interface CityService {
     
     void delete(Integer id);
     
-    City deleteByNameRus(String name);
+    List<City> deleteAllNameRus(String name);
     
-    City deleteByNameEng(String name);
+    List<City> deleteAllNameEng(String name);
 }
