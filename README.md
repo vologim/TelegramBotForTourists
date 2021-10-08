@@ -6,6 +6,15 @@
 
 Для запуска необходимо:
 * cоздать базу данных
+>>> 
+CREATE DATABASE tourist_telegram_bot;
+
+CREATE TABLE tourist_telegram_bot.city(
+id INT AUTO_INCREMENT PRIMARY KEY,
+city_name VARCHAR(50) NOT NULL,
+information TEXT
+);
+<<<
 * Имя телеграм бота: TouristAssistant
 * Токен: 2017117922:AAGstqPujtI1v6QvrhgMvr9nbzzVFuhC544
 
