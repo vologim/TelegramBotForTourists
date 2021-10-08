@@ -51,7 +51,13 @@ public class Bot extends TelegramLongPollingBot {
         }
         else if(msgFromUser.equals("/list")){
             List<City> listCities = repository.findAll();
-            msgToUser = listCities.stream().map(c -> c.getCityName() + "\n").collect(Collectors.joining());
+            if (listCities.isEmpty()){
+                msgToUser = "База пуста :(";
+            }
+            else {
+                msgToUser = listCities.stream().map(c -> c.getCityName() + "\n").collect(Collectors.joining());
+            }
+            
         }
         else if(city != null){
             msgToUser = city.getInformation();
