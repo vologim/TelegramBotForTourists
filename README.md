@@ -5,6 +5,8 @@
 * Управление данными (вывод, добавление, изменение, удаление) происходит через REST WebService.
 
 Для запуска необходимо:
+* Имя телеграм бота: TouristAssistant
+* Токен: 2017117922:AAGstqPujtI1v6QvrhgMvr9nbzzVFuhC544
 * cоздать базу данных
 <details>
     <summary>SQL</summary>
@@ -16,8 +18,6 @@ city_name VARCHAR(50) NOT NULL,
 information TEXT
 );
 </details>
-* Имя телеграм бота: TouristAssistant
-* Токен: 2017117922:AAGstqPujtI1v6QvrhgMvr9nbzzVFuhC544
 
 Все настройки хранятся в: /src/main/resources/application.properties
 
