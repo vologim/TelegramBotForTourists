@@ -34,3 +34,10 @@
 | DELETE  | /api/cities/{id}        | удаление города по id   </head>                  |
 | DELETE  | /api/cities/name/{name} | удаление всех городов из базы данных по названию |
 
+
+| Left-Aligned  | Center Aligned  | Right Aligned |
+|:------------- |:---------------:| -------------:|
+| col 3 is      | some wordy text |     **$1600** |
+| col 2 is      | centered        |         $12   |
+| zebra stripes | are neat        |        ~~$1~~ |
+
